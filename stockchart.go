@@ -1,3 +1,40 @@
+//  package main
+//
+//  import (
+//  	"fmt"
+//  	"github.com/pdevty/stockchart"
+//  	"io/ioutil"
+//  	"os"
+//  )
+//
+//  func main() {
+//  	// params json format
+//  	// brand id,name from yahoo finance japan
+//  	params := `[
+//  		{"id":"7618","name":"ピーシーデポ"},
+//  		{"id":"6157","name":"日進工具"},
+//  		{"id":"7821","name":"前田工繊"},
+//  		{"id":"7917","name":"藤森工業"},
+//  		{"id":"4681","name":"リゾートトラスト"},
+//  		{"id":"4301","name":"アミューズ"},
+//  		{"id":"4290","name":"プレステージ"},
+//  		{"id":"2780","name":"コメ兵"},
+//  		{"id":"2695","name":"くらコーポレーション"},
+//  		{"id":"2695","name":"内外トランスライン"}
+//  	]`
+//  	// new
+//  	sc, err := stockchart.New(params)
+//  	if err != nil {
+//  		panic(err)
+//  	}
+//  	// return chart html
+//  	fmt.Println(sc.Html())
+//  	// return chart csv
+//  	fmt.Println(sc.Csv())
+//  	// create chart html file
+//  	ioutil.WriteFile("index.html",
+//  		[]byte(sc.Html()), os.ModePerm)
+//  }
 package stockchart
 
 import (

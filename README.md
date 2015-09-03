@@ -15,43 +15,38 @@ package main
 
 import (
 	"fmt"
-	"github.com/pdevty/trustchart"
+	"github.com/pdevty/stockchart"
 	"io/ioutil"
 	"os"
 )
 
 func main() {
-
 	// params json format
-	// term 1y (1 year ) 2y 3y ...
-	//      1m (1 month) 2m 3m ...
-	//      1d (1 day  ) 2d 3d ...
 	// brand id,name from yahoo finance japan
-	params := `{
-		"term":"1y",
-		"brands":[
-			{"id":"89311067","name":"jrevive"},
-			{"id":"29311041","name":"ﾆｯｾｲ日経225"},
-			{"id":"03316042","name":"健次"},
-			{"id":"2931113C","name":"ﾆｯｾｲ外国株"}
-		]
-	}`
-
+	params := `[
+		{"id":"7618","name":"ピーシーデポ"},
+		{"id":"6157","name":"日進工具"},
+		{"id":"7821","name":"前田工繊"},
+		{"id":"7917","name":"藤森工業"},
+		{"id":"4681","name":"リゾートトラスト"},
+		{"id":"4301","name":"アミューズ"},
+		{"id":"4290","name":"プレステージ"},
+		{"id":"2780","name":"コメ兵"},
+		{"id":"2695","name":"くらコーポレーション"},
+		{"id":"2695","name":"内外トランスライン"}
+	]`
 	// new
-	tc, err := trustchart.New(params)
+	sc, err := stockchart.New(params)
 	if err != nil {
 		panic(err)
 	}
-
-	// return chart csv
-	fmt.Println(tc.Csv())
-
 	// return chart html
-	fmt.Println(tc.Html())
-
+	fmt.Println(sc.Html())
+	// return chart csv
+	fmt.Println(sc.Csv())
 	// create chart html file
 	ioutil.WriteFile("index.html",
-		[]byte(tc.Html()), os.ModePerm)
+		[]byte(sc.Html()), os.ModePerm)
 }
 ```
 
